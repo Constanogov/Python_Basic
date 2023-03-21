@@ -4,13 +4,17 @@
 """
 
 
-def power_numbers():
+def power_numbers(*number):
     """
     функция, которая принимает N целых чисел,
     и возвращает список квадратов этих чисел
     >>> power_numbers(1, 2, 5, 7)
     <<< [1, 4, 25, 49]
     """
+    square: list[Any] = []
+    for el in number:
+        square.append(el**2)
+    return square
 
 
 # filter types
