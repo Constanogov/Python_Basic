@@ -1,7 +1,7 @@
 def power_numbers(*number):
-    square: list[Any] = []
+    square: list[number] = []
     for el in number:
-        square.append(el**2)
+        square.append(el ** 2)
     return square
 
 # filter types
@@ -45,4 +45,3 @@ def filter_numbers(num, filter_type):
         return list(filter(filter_even_num, num))
     elif filter_type == PRIME:
         return list(filter(is_prime, num))
-
