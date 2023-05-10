@@ -24,10 +24,7 @@ def is_prime(num):
 
 # Не чётные
 def filter_odd_num(num):
-    if (num % 2) != 0:
-        return True
-    else:
-        return False
+    return num % 2 != 0
 
 
 # Четные
@@ -45,3 +42,8 @@ def filter_numbers(num, filter_type):
         return list(filter(filter_even_num, num))
     elif filter_type == PRIME:
         return list(filter(is_prime, num))
+
+#Я бы улучшил:
+#1) добавить else с ValueError, сообщить пользователю о неверном значении типа фильтра.
+#2) filter_odd_num можно написать просто `return num % 2 != 0` - результат операторов сравнения == или != - уже boolean.
+#А так засчитываю ДЗ.
