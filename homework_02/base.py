@@ -4,14 +4,11 @@ from homework_02 import exceptions
 
 
 class Vehicle(ABC):
-    started: bool = False
-    distance: int = 0
-
     def __init__(self, weight, fuel, fuel_consumption):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
-
+        self.started = False
     def start(self):
         if self.started == True:
             pass
