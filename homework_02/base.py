@@ -21,27 +21,9 @@ class Vehicle(ABC):
             self.started = True
 
     def move(self, distance):
-        max_distance = self.fuel // self.fuel_consumption
-        fuel_need = self.distance * self.fuel_consumption
-        if self.fuel == 0 or \
-                self.fuel_consumption > self.fuel or \
-                self.distance > max_distance or \
-                fuel_need > self.fuel:
+        required_fuel = distance * self.fuel_consumption
+        fuel_now = self.fuel
+        if fuel_now < required_fuel or fuel_now < self.fuel_consumption:
             raise exceptions.NotEnoughFuel
-        elif fuel_need == self.fuel:
-            self.fuel = self.fuel - self.distance * self.fuel_consumption
         else:
-            raise exceptions.NotEnoughFuel
-
-
-
-#auto = Vehicle(1, 0, 5)
-# auto.fuel = 10
-# print(vars(auto))
-#auto.started = True
-#auto.start(auto.started)
-#print(auto.started)
-# auto.started = '1'
-# print(auto.started)
-#print(Vehicle.started)
-#print(Vehicle.start)
+            self.fuel = self.fuel - required_fuel
